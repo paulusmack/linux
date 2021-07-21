@@ -72,8 +72,8 @@
 			timebase-frequency = <100000000>;
 			i-tlb-sets = <1>;
 			ibm,ppc-interrupt-server#s = <0>;
-			i-cache-block-size = <64>;
-			d-cache-block-size = <64>;
+			i-cache-block-size = <128>;
+			d-cache-block-size = <128>;
 			d-cache-sets = <2>;
 			i-tlb-size = <64>;
 			cpu-version = <0x990000>;
