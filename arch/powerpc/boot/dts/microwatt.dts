@@ -57,10 +57,35 @@
 				usable-privilege = <2>;
 			};
 
-			floating-point {
+			FP: floating-point {
 				hwcap-bit-nr = <27>;
 				isa = <0>;
 				usable-privilege = <3>;
+			};
+
+			VMX: vector {
+				hfscr-bit-nr = <0x01>;
+				hwcap-bit-nr = <0x1c>;
+				isa = <0x00>;
+				usable-privilege = <0x07>;
+				hv-support = <0x00>;
+				os-support = <0x00>;
+				dependencies = <&FP>;
+			};
+
+			vector-scalar {
+				hwcap-bit-nr = <0x07>;
+				isa = <0x00>;
+				usable-privilege = <0x07>;
+				hv-support = <0x00>;
+				os-support = <0x00>;
+				dependencies = <&VMX>;
+			};
+
+			control-register {
+				isa = <0>;
+				usable-privilege = <2>;
+				os-support = <0x00>;
 			};
 		};
 
@@ -88,6 +113,7 @@
 			reg = <0>;
 			general-purpose;
 			64-bit;
+			ibm,vmx = <2>;
 			d-cache-size = <0x1000>;
 			ibm,chip-id = <0>;
 		};
